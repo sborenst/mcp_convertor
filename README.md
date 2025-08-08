@@ -54,6 +54,22 @@ docker-compose up --build
 
 The server will be available at `http://localhost:9000`
 
+If you are using cursor, your json file will now look like this:
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "jira-mcp": {
+      "url": "http://localhost:9000/mcp"
+    }
+  }
+}
+```
+
+Side note, if you aren't using context7 MCP server in your code assistant, what are you even doin' Mate?
+
 ## What This Solves
 
 Most MCP servers are designed to run inside MCP clients (like Cursor, Claude Desktop) using stdio transport. This approach shows you how to:
