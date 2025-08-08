@@ -13,7 +13,7 @@ This repository contains documentation and examples for running MCP servers loca
 
 ## Contents
 
-- `mcp-atlassian-local-server.md` - Comprehensive guide for running any MCP server locally
+- `mcp-atlassian-local-server.md` - Basic guide for running any MCP server locally
 - Examples and patterns for different types of MCP servers
 
 ## Quick Start
@@ -31,8 +31,36 @@ This repository contains documentation and examples for running MCP servers loca
 # 3. Add transport flags
 # 4. Run the command
 
+export JIRA_PERSONAL_TOKEN="Your_TOKEN"
+export JIRA_URL="https://your_jira_server.com"
 uvx mcp-atlassian --transport streamable-http --port 9000 -vv
 ```
+
+## Container Deployment
+
+For easy deployment, you can use the provided Docker container:
+
+1. **Create your `.env` file:**
+   ```bash
+   cp env.example .env
+   # Edit .env with your actual credentials
+   ```
+
+2. **Run with Docker Compose:**
+   ```bash
+   ./run-container.sh
+   ```
+
+3. **Or manually:**
+   ```bash
+   docker-compose up --build
+   ```
+
+The container will:
+- Read configuration from `.env` file
+- Execute the command specified in `JIRA_COMMAND`
+- Listen on the port specified in `JIRA_PORT`
+- Automatically restart on failure
 
 ## Contributing
 
